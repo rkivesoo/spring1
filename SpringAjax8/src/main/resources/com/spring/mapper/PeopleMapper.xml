@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace="com.spring.mapper.MemberMapper는 MemberMapper인퍼페이스(MemberMapper.class)의 이름을 사용한다. -->
+<mapper namespace="com.spring.mapper.PeopleMapper">
+
+
+	<!-- id는 Mapper.java(여기선 MemberMapper.java)에 동일하게 사용해야된다. -->
+	
+	<select id="getPeoplelist" resultType="PeopleVO">
+		SELECT * FROM people order by id
+	</select>
+	
+<!--
+	<select id="getMembers" parameterType="String" resultType="MemberVO">
+		SELECT * FROM ${value} order by name
+	</select>
+
+	<select id="getMember" parameterType="String" resultType="MemberVO">
+		SELECT * FROM tab_mybatis WHERE id=#{id, javaType=String}
+	</select>
+	-->
+	<!--  해시 일때 
+	<select id="getMember" parameterType="String" resultMap="hashmapVO">
+		SELECT * FROM tab_mybatis WHERE id=#{id, javaType=String}
+	</select>-->
+	<!--  
+	<select id="insertPeople" resultType="PeopleVO">
+		SELECT * FROM smember WHERE id=#{id, javaType=String}
+	</select>-->
+	
+	<!-- parameterType 에는 구문에 전달될 파라미터의 패키지 경로를 포함한 전체 클래명이나 별칭이 들어간다 -->
+	<!-- root-context에서 아래와 같이 typeAliasesPackage를 설정하면 패키지 경로 생략 가능. 
+	<property name="typeAliasesPackage" value="com.spring.springmybatis" /> 추가시
+	<insert id="insertMember" parameterType="MemberVO" > 로 표현 가능
+	-->
+	<insert id="insertPeople" parameterType="PeopleVO" >
+		INSERT INTO people VALUES 
+			 (#{id},#{name},#{job},#{address},#{bloodtype})
+	</insert>
+	<!--  
+	<insert id="insertMember2" parameterType="HashMap" >
+		INSERT INTO smember VALUES 
+			(#{id, javaType=String},#{password},#{name, jdbcType=VARCHAR},#{age},#{gender},#{email})
+	</insert>
+
+	<update id="updateMember" parameterType="MemberVO">
+		UPDATE smember SET password=#{password}, name=#{name},age=#{age},gender=#{gender}, email=#{email} WHERE id=#{id}
+	</update>-->
+ 	
+	<delete id="deletePeople" parameterType="String">
+		DELETE FROM people WHERE id=#{id}
+	</delete>
+	
+	<delete id="updatePeople" parameterType="PeopleVO">
+		UPDATE people SET name=#{name},job=#{job},adress=#{adress}, bloodtype=#{bloodtype} WHERE id=#{id}
+	</delete>
+	
+	<!--  
+	<select id="getCount" resultType="int">
+		select count(*) FROM smember
+	</select>-->
+
+</mapper>

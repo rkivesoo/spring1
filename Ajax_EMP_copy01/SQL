@@ -1,0 +1,11 @@
+
+select * from 
+emp_copy;
+
+select * from emp;
+
+CREATE TABLE emp_copy
+     AS
+     SELECT * FROM emp;
+     
+     commit;

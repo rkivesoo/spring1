@@ -1,0 +1,134 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>동적SQL연습</title>
+	
+	<style type="text/css">	
+	table{
+	border:1px solid gray;
+	width:500px;
+	margin:0 auto;
+	border-collapse: collapse;
+	}
+	td{
+	border:1px solid gray;
+	}
+	</style>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+	//목록 
+	$(document).ready(function(){
+	function selectData(){
+		$('#output').empty(); //table내부 내용을 제거(초기화)
+		
+		$.ajax({
+		url:'/empcopy01/getEmpdata.do', // 고민 고민 getEmpdata
+		type:'POST',
+		//dataType:'json', // 서버에서 보내줄 데이터 타입 //오라클에서 받아 올때도 json으로 받아 오나? m.m 아니지 않나 알아보자. 
+		contentType:'application/x-www-form-urlencoded;charset=utf-8',
+		
+		success:function(data){
+			$.each(data, function(index, item){	
+				var output=' ' ;
+				output += '<tr>';
+				output += '<td>'+item.empno+'</td>';
+				output += '<td>'+item.ename+'</td>';
+				output += '<td>'+item.job+'</td>';
+				output += '<td>'+item.mgr+'</td>';
+				output += '<td>'+item.hiredate+'</td>';
+				output += '<td>'+item.sal+'</td>';
+				output += '<td>'+item.comm+'</td>';
+				output += '<td>'+item.deptno+'</td>';
+				output += '<tr>';
+				console.log("output:"+output);
+				$('#output').append(output);
+			});
+		},
+		error:function(){
+			alert("ajax통신 실패1!!!");			
+		}
+		});		
+				
+	//});
+		
+	
+		//2
+		//1 다시  //함수 부분+ 버튼 이벤트 부분. 
+		$('.content').on("click",function(){  //ADD202012181310-1
+			function selectData(){
+				$('#output').empty(); 
+				
+		$("input[name=checkbox]:checked").each(function(){			
+			console.log('checkbox :' + $(this).val() );	//
+				
+			//
+			jQuery.ajax({
+				url: $(this).attr("href"),
+				type:'POST',
+				data:{'id':$(this).attr("id")},
+				
+				contentType: 'application/x-www-form-urlencoded;charset=utf-8',	
+				dataType:'json',
+				
+				success:function(retVal){
+					if(retVal.res=="OK"){//데이타 성공일때 이벤트 작성    
+						selectData();				
+					}
+					else
+					{
+						alert(" Fail!!!");					
+					}
+				},
+				error:function(){
+					alert("ajax통신 실패2!!!");
+				}
+			});
+			//기본 이벤트 제거 
+			event.preventDefault();			
+			//			
+		});		
+		//	1
+	});//ADD202012181310-1
+		
+		
+};			
+selectData();//
+});
+
+	</script>
+</head>
+
+<body>
+	<!-- 데이터 가져 오고 나면 체크 박스 자리  -->
+	
+<h1>
+	Hello Dynamic SQL?!  	
+</h1>
+
+<P> Blueberry Eyes~~</P>
+<P> DONE is Better than perfect!!!! </P>
+
+		
+
+<h2> Scott's EMP table!  </h2>
+<div class="content">
+
+<label><input type="checkbox" name="checkbox" value="10">No.10</label>
+<label><input type="checkbox" name="checkbox" value="20">No.20</label>
+<label><input type="checkbox" name="checkbox" value="30">No.30</label>
+
+<button type="button" onclick="getValue()">Click!!!</button>
+
+</div>
+
+<table id="output"></table> 
+
+</body>
+</html>

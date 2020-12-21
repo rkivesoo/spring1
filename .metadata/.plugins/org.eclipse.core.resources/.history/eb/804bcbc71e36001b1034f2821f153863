@@ -1,0 +1,70 @@
+package com.spring.mb2replay.board;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spring.mapper.BoardMapper;
+
+
+
+@Service("boardService")
+public class BoardServiceImpl implements BoardService {
+
+	@Autowired
+	private SqlSession sqlSession;
+
+	@Override
+	public int getListCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<com.spring.mb2replay.board.BoardVO> getBoardList(HashMap<String, Integer> hashmap) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public com.spring.mb2replay.board.BoardVO getDetail(int num) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean boardInsert(com.spring.mb2replay.board.BoardVO board) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int boardReply(com.spring.mb2replay.board.BoardVO board) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public com.spring.mb2replay.board.BoardVO boardModifyForm(int num) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean boardModify(com.spring.mb2replay.board.BoardVO modifyboard) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean boardDelete(HashMap<String, String> hashmap) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+	
+}

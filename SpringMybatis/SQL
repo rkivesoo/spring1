@@ -1,0 +1,8 @@
+    create table tab_mybatis (
+       id varchar2(15) primary key,
+       name varchar2(15),
+       email varchar2(50),
+       phone varchar2(15)
+       );
+       
+       

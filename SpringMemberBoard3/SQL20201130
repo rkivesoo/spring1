@@ -1,0 +1,58 @@
+202011301633 
+이번에는 게시판 
+그냥 게시판 아니고 회원가입과 연결 되는 게시판 
+파일을 첨부 할 수 있는 게시판 
+
+
+desc smember;
+
+drop table smember;
+
+create table smember(
+id varchar2(15),
+password varchar2(10), 
+name varchar2(15), 
+age number, 
+gender varchar2(5),
+email varchar2(30),
+primary key(id)
+);
+
+
+
+create table smemberboard2(
+num number,
+id varchar2(20),
+subject varchar2(50),
+content varchar2(2000),
+org_file varchar2(50),
+up_file varchar2(50),
+re_ref number,
+re_lev number,
+re_seq number,
+readcount number,
+boarddate date,
+primary key(num)
+);
+
+   commit;
+   
+   설명
+   create table smemberboard2(
+num number, //글 번호
+id varchar2(20),//회원 아이디
+subject varchar2(50), //제목
+content varchar2(2000),
+org_file varchar2(50),//오리지날 파일
+up_file varchar2(50),//실제 업로드된 파일 이름 
+re_ref number, //원글과 답글을 그룹으로 만들기 위한 
+re_lev number,//들여쓰기를 위해 쓰는 컬럼
+re_seq number,//지난번에 스텝; 원글과 답급글 순서 유지를 위해
+readcount number,//조회수
+boarddate date,//글 쓴 날짜. 
+primary key(num)
+);
+
+   commit;
+   
+   

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="SpringSungjukMVC01"/>
+<aop-project name="SpringTest5_tea"/>
+<aop-project name="SpringForm"/>
+<aop-project name="SpringAjax6"/>
+<aop-project name="SpringAjax2"/>
+<aop-project name="Ajax_EMP_copy2_forTest"/>
+<aop-project name="SpringTest"/>
+<aop-project name="SpringMemberBoard2"/>
+<aop-project name="SpringSungjuk"/>
+<aop-project name="SpringMybatis2"/>
+<aop-project name="Springfileupload1"/>
+<aop-project name="Ajax_EMP_copy01"/>
+<aop-project name="SpringTest3"/>
+<aop-project name="SpringAjax3"/>
+<aop-project name="SpringAjax7"/>
+<aop-project name="SpringMemberBoard3"/>
+<aop-project name="Ajax_EMP_copy4"/>
+<aop-project name="SpringAjax"/>
+<aop-project name="SpringMybatisMB2Replay"/>
+<aop-project name="SpringTest4"/>
+<aop-project name="SpringMember2"/>
+<aop-project name="SpringAjax4"/>
+<aop-project name="SpringAjax8"/>
+<aop-project name="SpringMSungjuk"/>
+<aop-project name="Ajax_EMP_copy3"/>
+<aop-project name="SpringMybatisMB2Replay2"/>
+<aop-project name="SpringMember"/>
+<aop-project name="SpringMybatis"/>
+<aop-project name="SpringTest1"/>
+<aop-project name="SpringMember3"/>
+<aop-project name="SpringAjax5"/>
+</aop-reference-model>

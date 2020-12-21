@@ -1,0 +1,12 @@
+ create table sungjuk(
+  hakbun varchar2(4) primary key,
+  irum varchar2(15),
+  kor number(3), 
+  eng number(3), 
+  math number(3), 
+  tot number(3),
+  avg number(5,2), 
+  grade varchar2(4)
+  );     
+  202011291825_현재 비어 있는 테이블 
+  202011291834_SungjukVO작성. 

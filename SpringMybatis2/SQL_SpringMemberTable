@@ -1,0 +1,23 @@
+desc smember;
+
+SELECT
+    *
+FROM smember;
+
+이름       널?       유형           
+-------- -------- ------------ 
+ID       NOT NULL VARCHAR2(15) 
+PASSWORD          VARCHAR2(10) 
+NAME              VARCHAR2(15) 
+AGE               NUMBER       
+GENDER            VARCHAR2(5)  
+EMAIL             VARCHAR2(30) 
+
+
+202012021619(기존 값) 
+java	1234	이자바	80	남	java@java.om
+A001	1234	흥	36	남	park@gmail.com
+admin	1234	관리자	20	여	rkive.soo@gmail.com
+apple	1234	이사과	23	남	park@gmail.com
+123APPLE	1234	감	60	남	apple8@apple.com
+A002	1234	공공공	87	남	8787@youth.com
